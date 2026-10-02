@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Working Land — one file</title>
+<style>
+  :root { --soil:#140e0b; --cream:#f4e7d6; --gold:#e2b15a; --clay:#c46a3a; --moss:#8aa56c; --muted:#b7a394; --bark:#241912; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--soil); color:var(--cream); font-family: Georgia, "Iowan Old Style", serif; }
+  img { width:100%; display:block; object-fit:cover; }
+  nav { position:sticky; top:0; z-index:2; display:flex; gap:8px; padding:10px 16px; background:rgba(20,14,11,.92); border-bottom:1px solid rgba(244,231,214,.12); }
+  nav button { background:transparent; color:var(--cream); border:1px solid rgba(244,231,214,.2); border-radius:999px; padding:8px 12px; font-family:ui-sans-serif,system-ui,sans-serif; font-size:13px; cursor:pointer; }
+  nav button.on { border-color:var(--gold); color:var(--gold); }
+  section { display:none; }
+  section.on { display:block; }
+  .hero { position:relative; height:70vh; min-height:380px; }
+  .hero img { height:100%; }
+  .cap { position:absolute; left:0; right:0; bottom:0; padding:24px 6vw 28px; background:linear-gradient(transparent, rgba(20,14,11,.92)); }
+  h1 { font-weight:500; font-size:clamp(40px,7vw,76px); line-height:.9; margin:0; letter-spacing:-.03em; }
+  h1 em { font-style:italic; color:var(--gold); }
+  h2 { font-weight:500; font-size:30px; margin:28px 0 8px; }
+  .wrap { max-width:980px; margin:0 auto; padding:22px 18px 72px; }
+  .k { font-family:ui-sans-serif,system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; font-size:11px; color:var(--gold); }
+  .card { border:1px solid rgba(244,231,214,.12); border-radius:16px; padding:14px 16px; margin:12px 0; background:#1c1410; }
+  .card h3 { margin:4px 0 8px; font-weight:500; font-size:22px; }
+  .muted { color:var(--muted); }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media (max-width:740px) { .row, .board { grid-template-columns:1fr !important; } }
+  .board { display:grid; grid-template-columns:230px 1fr; gap:14px; }
+  button.g { text-align:left; width:100%; background:var(--bark); color:var(--cream); border:1px solid rgba(244,231,214,.14); border-radius:14px; padding:10px 12px; margin:0 0 8px; cursor:pointer; font-family:inherit; font-size:16px; }
+  button.g.on { border-color:var(--gold); }
+  button.g small { display:block; color:var(--muted); font-family:ui-sans-serif,system-ui,sans-serif; font-size:12px; }
+  .stage { border-radius:18px; border:1px solid rgba(244,231,214,.12); padding:16px; background:#1b130f; min-height:380px; }
+  .jug { width:68px; height:84px; margin:0 auto 8px; border:3px solid var(--gold); border-radius:8px 8px 20px 20px; position:relative; }
+  .jug:after { content:""; position:absolute; right:-14px; top:16px; width:14px; height:20px; border:3px solid var(--gold); border-left:0; border-radius:0 12px 12px 0; }
+  .fill { position:absolute; left:3px; right:3px; bottom:3px; height:0; background:linear-gradient(var(--gold), var(--clay)); border-radius:4px 4px 14px 14px; transition:height 1s ease; }
+  .tag { font-family:ui-sans-serif,system-ui,sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
+  .fall { opacity:0; transform:translateY(8px); animation:d .5s ease forwards; margin-top:10px; padding:10px 12px; border-left:3px solid var(--moss); background:rgba(244,231,214,.04); border-radius:10px; }
+  @keyframes d { to { opacity:1; transform:none; } }
+  .draft { white-space:pre-wrap; font-family:ui-sans-serif,system-ui,sans-serif; font-size:15px; line-height:1.45; }
+</style>
+</head>
+<body>
+<nav>
+  <button class="on" data-go="land">The land</button>
+  <button data-go="days">Sixty days</button>
+  <button data-go="drafts">Drafts</button>
+  <button data-go="jug">The jug</button>
+</nav>
+
+<section id="land" class="on">
+  <div class="hero">
+    <img id="img1" src="Steo3.jpg" alt="Dusk farm, flock, garden, one lit window" />
+    <div class="cap">
+      <div class="k">Wisconsin · one file · October 2026</div>
+      <h1>Keep the ground <em>in production.</em></h1>
+      <p>Sustenance louder than shipping. A lamb is a meal and a reason the pasture is not a pad. Open this file in Chrome or Safari. Do not paste it into the email body.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="row">
+      <article class="card"><img id="img2" src="520Gp.jpg" alt="Hands, wool, lamb, bread" style="height:220px;border-radius:10px" /><h3>Bed. Mouth. Trial.</h3><p>No nonprofit. List the house. File Farm to Stay when it opens in November, up to $10,000. File Buy Local by November 4, $5,000–$50,000, half match. File a SARE trial by December 3, up to $15,000.</p></article>
+      <article class="card"><img id="img3" src="6bUpi.jpg" alt="Sheep, a distant pad" style="height:220px;border-radius:10px" /><h3>They invite. She feeds.</h3><p>A friend with a nonprofit can file Joint Effort Marketing by November 1. That buys the pull, not the fence. The big training grant is shut until 2027. An easement talk runs beside the grants. A grant does not buy the deed.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="days">
+  <div class="wrap">
+    <div class="k">The next sixty days</div>
+    <h2>What happens, in order.</h2>
+    <article class="card"><h3>October 13 — Viroqua</h3><p>Buy Local workshop, Food Enterprise Center, 12:30–2:30.</p></article>
+    <article class="card"><h3>October 14 — Airbnb workshop</h3><p>Farm to Stay, free, before the form opens.</p></article>
+    <article class="card"><h3>October 15 — SARE webinar</h3><p>Noon Central. How to write the trial.</p></article>
+    <article class="card"><h3>November 1 — only if a friend has a nonprofit</h3><p>Joint Effort Marketing. Promotion. Not the fence.</p></article>
+    <article class="card"><h3>November 4 — Buy Local due</h3><p>11:59 p.m. Central. Two letters. Two years of books. A W-9. Do not invent the sales numbers.</p></article>
+    <article class="card"><h3>November — Farm to Stay opens</h3><p>File the week it opens. Up to $10,000.</p></article>
+    <article class="card"><h3>December 3 — SARE due</h3><p>Noon Central. One farm, $15,000. Two separate farms, $30,000.</p></article>
+  </div>
+</section>
+
+<section id="drafts">
+  <div class="wrap">
+    <div class="k">Copy these. Fill the brackets.</div>
+    <h2>Three drafts.</h2>
+    <article class="card"><h3>Buy Local concept</h3><p class="draft">[Farm name] in [county], Wisconsin, raises lamb and a kitchen garden and sells to people who can drive to the place. The hurdle is not production. It is the last step between a fleece, a cut, or a crate of food and a Wisconsin buyer. This project builds that step: a farm table and a short local-food route so lamb, wool, and garden food are sold here, not shipped out of the county as a commodity.
+
+The work runs January 2027 through December 2027. A regular on-farm sale, one restaurant or shop or school kitchen, and two open days. Success is dollars of Wisconsin food sold to Wisconsin buyers above the 2025–2026 baseline, and buyers who come back.
+
+Ask $18,000. Match $18,000, mostly her time. They will pay labor, labels, a cooler under $10,000, mileage at $0.51, signs, and a page a buyer can find. They will not pay animals, a kitchen, raw product, meals, hotels, or a vehicle. Two letters only.</p></article>
+    <article class="card"><h3>Farm to Stay</h3><p class="draft">[Farm name] is a working Wisconsin place: a flock, a garden, and a house that can take a guest. The stay is not a vacation from the farm. A guest sleeps where the work is, eats from the ground, and can put hands on a fleece or a chore. The money finishes the room and sets one repeatable experience: a farm table, or a wool afternoon. Not a renovation. Not land.</p></article>
+    <article class="card"><h3>SARE trial</h3><p class="draft">Title: Two finishes on one pasture — what the lamb, the fleece, and the eater actually do.
+
+Split a group of lambs of similar age onto two finishing approaches she can actually run. Weigh at start and finish. Record days, fleece weight on a sample, and a taste note from people who eat both. No meter from out of state. One free field afternoon and a two-page note other flocks can use. Livestock and permanent fence only half-funded. Day-to-day feed is not allowed.</p></article>
+  </div>
+</section>
+
+<section id="jug">
+  <div class="wrap">
+    <div class="k">Drop a grant in</div>
+    <h2>The jug.</h2>
+    <div class="board">
+      <div id="grants"></div>
+      <div class="stage">
+        <div class="jug"><div class="fill" id="fill"></div></div>
+        <div class="tag" id="pour" style="text-align:center">Choose a grant</div>
+        <div id="falls"></div>
+      </div>
+    </div>
+    <p class="muted">Verified: Buy Local is open through November 4. Farm to Stay opens in November. SARE is due December 3. There is no Wisconsin nutrient-density institute. That lab is in Massachusetts.</p>
+  </div>
+</section>
+<script>
+document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("nav button").forEach(x => x.classList.remove("on"));
+  document.querySelectorAll("section").forEach(x => x.classList.remove("on"));
+  b.classList.add("on");
+  document.getElementById(b.dataset.go).classList.add("on");
+  window.scrollTo(0,0);
+});
+const grants = [
+  ["Farm to Stay","Up to $10k · November","Airbnb + American Farmland Trust",[["On the ground","A room finished. A table set. A person sleeps where the work is."],["After","A listing and guest income. Proof for the food grant."],["Three years","The stay is how new hands arrive without a training grant."]]],
+  ["Buy Local","$5–50k · due Nov 4","DATCP",[["On the ground","Lamb, wool, or garden food gets a buyer in the county."],["After","A sales record a shop or next year’s grant can believe."],["Three years","The record is the spine of a value-added ask when that window reopens."]]],
+  ["SARE trial","Due Dec 3 · noon","North Central SARE",[["On the ground","One question, run. Weight, days, fleece, a second bite."],["After","A result with her name on it."],["Three years","The notes a friends’ nonprofit needs for the training grant."]]],
+  ["More hands","Not open","Beginning farmer training",[["On the ground","A season of chores taught. Someone else can do Tuesday."],["After","A bench of people. Land with backup."],["Twenty years","This is the grant that changes who knows the work, not just who visits."]]]
+];
+const box = document.getElementById("grants");
+grants.forEach(g => {
+  const b = document.createElement("button");
+  b.className = "g";
+  b.innerHTML = g[0] + "<small>" + g[1] + "</small>";
+  b.onclick = () => {
+    document.querySelectorAll("button.g").forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    document.getElementById("pour").textContent = g[2];
+    const fill = document.getElementById("fill");
+    fill.style.height = "0%";
+    requestAnimationFrame(() => fill.style.height = "76%");
+    const f = document.getElementById("falls");
+    f.innerHTML = "";
+    g[3].forEach(row => {
+      const d = document.createElement("div");
+      d.className = "fall";
+      d.innerHTML = "<div class='tag'>" + row[0] + "</div><p>" + row[1] + "</p>";
+      f.appendChild(d);
+    });
+  };
+  box.appendChild(b);
+});
+</script>
+</body>
+</html>
